@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a1238" />
+  <title>Altos Louvores — Não Desista | Ludmila Ferber</title>
+  <meta name="description" content="Altos Louvores: vídeos com temas gospel para tocar o seu coração. Assista agora 'Não Desista' com Ludmila Ferber." />
+  <meta name="author" content="Altos Louvores" />
+
+  <!-- Open Graph / redes sociais -->
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="Altos Louvores — Não Desista | Ludmila Ferber" />
+  <meta property="og:description" content="Vídeos com temas gospel para tocar o seu coração. Assista agora 'Não Desista'." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Altos Louvores" />
+  <meta property="og:image" content="assets/images/capa-nao-desista.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Cabeçalho / Navegação -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a href="#topo" class="logo" aria-label="Altos Louvores — Início">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+          </svg>
+        </span>
+        <span class="logo-text">Altos Louvores</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#destaque">Em destaque</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile" hidden>
+      <a href="#destaque">Em destaque</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero / Vídeo em destaque -->
+    <section class="hero" id="destaque">
+      <div class="container hero-grid">
+        <div class="hero-player">
+          <div class="video-card">
+            <div class="video-wrapper">
+              <video
+                id="mainVideo"
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/images/capa-nao-desista.jpg"
+              >
+                <source src="assets/videos/nao-desista.mp4" type="video/mp4" />
+                <track kind="subtitles" srclang="pt-BR" label="Português" />
+                Seu navegador não suporta a reprodução de vídeos HTML5.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-info">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Em destaque</p>
+          <h1 class="hero-title">Não Desista</h1>
+          <p class="hero-artist">Cantora <strong>Ludmila Ferber</strong></p>
+          <p class="hero-desc">
+            Uma mensagem de fé e esperança para encorajar o seu coração.
+            Não desista — Deus ainda está trabalhando em sua história.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-action="play" type="button">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              <span>Assistir agora</span>
+            </button>
+            <button class="btn btn-ghost" data-action="share" type="button">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span>Compartilhar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre o Altos Louvores</h2>
+        <p class="section-lead">
+          O Altos Louvores é um espaço dedicado a reunir vídeos com temas gospel que edificam,
+          confortam e aproximam você de Deus. Aqui você encontra mensagens, louvores e
+          testemunhos para alimentar a sua fé todos os dias.
+        </p>
+
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 9 2 5 5.5 5c2 0 3.5 1 4.5 2.5C11 6 12.5 5 14.5 5 18 5 19.5 9 18.5 12.5 19 16.65 12 21 12 21z"/></svg>
+            </div>
+            <h3>Mensagens que tocam</h3>
+            <p>Conteúdo cuidadosamente selecionado para fortalecer a sua caminhada.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <h3>Louvores &amp; adoração</h3>
+            <p>Cânticos que elevam o seu espírito e aproximam o seu coração de Deus.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Sempre disponível</h3>
+            <p>Acesse de qualquer lugar, a qualquer hora — no celular ou no computador.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato / Chamada -->
+    <section class="section section-alt" id="contato">
+      <div class="container contact-inner">
+        <h2 class="section-title">Fique com a gente</h2>
+        <p class="section-lead">
+          Novos louvores e mensagens chegam sempre. Volte sempre para conferir as novidades.
+        </p>
+        <p class="verse" id="dailyVerse">
+          “Tudo posso naquele que me fortalece.” — Filipenses 4:13
+        </p>
+        <button class="btn btn-primary" data-action="new-verse" type="button">
+          Ver outro versículo
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </span>
+        <span>Altos Louvores</span>
+      </div>
+      <p class="footer-text">© <span id="year"></span> Altos Louvores — Que a paz e a fé te acompanhem.</p>
+    </div>
+  </footer>
+
+  <!-- Toast de feedback (compartilhar) -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

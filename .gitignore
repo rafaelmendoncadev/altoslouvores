@@ -1,0 +1,41 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel
+
+# Ambiente e secrets
+.env
+.env.local
+.env.*.local
+*.local
+
+# Arquivos temporários e cache
+.cache/
+_tmp*
+*.tmp
+
+# Saídas de build
+dist/
+build/
+out/
