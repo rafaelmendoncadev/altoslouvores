@@ -40,8 +40,20 @@
     .filter(Boolean);
   var spyLinks = document.querySelectorAll('.main-nav a[href^="#"], .mobile-nav a[href^="#"]');
 
+  /* ----- Destaque do link ativo por página ----- */
+  var isPregacoesPage = /pregacoes\.html/i.test(window.location.pathname);
+  var pregacoesLinks = document.querySelectorAll('a[href$="pregacoes.html"], a[href*="pregacoes.html"]');
+
   function updateHeaderAndSpy() {
     if (header) header.classList.toggle("is-scrolled", window.scrollY > 10);
+
+    /* Destaque especial na página de pregações */
+    if (isPregacoesPage) {
+      pregacoesLinks.forEach(function (link) {
+        link.classList.add("active");
+      });
+      return;
+    }
 
     var pos = window.scrollY + (header ? header.offsetHeight : 72) + 90;
     var current = spySections[0];
