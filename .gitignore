@@ -39,3 +39,5 @@ _tmp*
 dist/
 build/
 out/
+
+.vercel

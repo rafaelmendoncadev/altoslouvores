@@ -47,3 +47,33 @@ python -m http.server 8000   # ou: npx serve .
 ## Documentação
 
 - `README.md` contém o guia de estrutura e de como adicionar vídeos — leia antes de mudar a estrutura.
+
+## Comandos de DevOps
+
+**Não há npm, build ou testes configurados** — este é um projeto estático sem stack de build. Se você adicionar um processo de build no futuro:
+
+- Documente todos scripts em `package.json`.
+- Garanta que `vercel.json` continue configurando corretamente cache e headers de vídeo.
+- Pré-visualize sempre em ambiente seguro (HTTPS) para testar APIs do navegador.
+
+## Regras de Importação e Caminhos
+
+- **CSS:** sempre importe via `@import` dentro de `<style>` ou `<link rel="stylesheet">`. Não crie múltiplos arquivos CSS sem necessidade.
+- **JS:** mantenha todo JavaScript em `js/main.js`. Não crie arquivos separados.
+- **Assets:** `/assets/images/` para imagens estáticas; vídeos devem ser processados externamente e entregues como arquivos estáticos.
+
+## Regras de Logging e Debugging
+
+- **Frontend:** use `console.log()` de forma controlada; mantenha logs em modo desenvolvimento apenas.
+- **Deploy:** verifique o status no dashboard da Vercel; use os logs de build para detectar problemas de cache ou headers.
+
+## Regras de UI/Design
+
+- **Design System:** mantenha consistência via CSS custom properties (variáveis) no `:root`.
+- **Responsividade:** priorize mobile-first (seções seguem ordem de aparecimento em telas pequenas).
+- **Dark Mode:** ainda não implementado — mantenha estilo claro atual e considere adicionar dark mode em futuras melhorias.
+
+## Instruções de Security
+
+- **HTTPS obrigatório:** `vercel.json` não expõe rotas sensíveis, mas APIs nativas (`navigator.share`, `navigator.clipboard`) só funcionam em HTTPS. Sempre teste em ambiente seguro.
+- **Input sanitization:** não há formulários no momento, mas se adicionar, use `textContent` em vez de `innerHTML` para textos inseridos dinamicamente.
