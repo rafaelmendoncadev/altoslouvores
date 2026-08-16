@@ -606,6 +606,102 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ==========================================================================
+   Pregações — grid de cards
+   ========================================================================== */
+.pregacoes-hero {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.pregacoes-hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  margin: 0 0 12px;
+}
+.pregacoes-hero-lead {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 auto 44px;
+  font-size: 1.05rem;
+}
+
+.pregacoes-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+}
+
+.pregacao-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 32px 28px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.pregacao-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30);
+}
+
+.pregacao-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.14), rgba(212, 175, 55, 0.03));
+  border: 1px solid rgba(212, 175, 55, 0.30);
+  color: var(--gold);
+  margin-bottom: 18px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.pregacao-card:hover .pregacao-icon {
+  transform: scale(1.06);
+  color: var(--gold-soft);
+}
+
+.pregacao-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  background: rgba(212, 175, 55, 0.10);
+  border: 1px solid rgba(212, 175, 55, 0.30);
+  border-radius: 999px;
+}
+
+.pregacao-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  margin: 0 0 12px;
+}
+
+.pregacao-card p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.pregacao-download {
+  align-self: flex-start;
+}
+
+/* ==========================================================================
    Responsividade — Tablet (>= 640px)
    ========================================================================== */
 @media (min-width: 640px) {
@@ -613,6 +709,7 @@ button { font-family: inherit; cursor: pointer; }
   .section { padding: 80px 0; }
   .features { grid-template-columns: repeat(2, 1fr); }
   .videos-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .pregacoes-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ==========================================================================
@@ -635,6 +732,7 @@ button { font-family: inherit; cursor: pointer; }
   .features { grid-template-columns: repeat(3, 1fr); }
   .section { padding: 112px 0; }
   .videos-grid { gap: 36px; }
+  .pregacoes-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Reduzir animações para quem prefere menos movimento */
