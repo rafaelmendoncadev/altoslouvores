@@ -415,6 +415,58 @@ button { font-family: inherit; cursor: pointer; }
   display: block;
 }
 
+/* Capa personalizada sobre o player */
+.video-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1020;
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.video-cover.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.video-cover:hover .cover-image {
+  transform: scale(1.03);
+}
+.play-overlay-btn {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(11, 16, 32, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid var(--gold);
+  color: var(--gold-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.40);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  pointer-events: none;
+}
+.video-cover:hover .play-overlay-btn,
+.video-cover:focus-visible .play-overlay-btn {
+  transform: scale(1.12);
+  background: var(--gold);
+  color: #1a1238;
+  box-shadow: 0 0 38px rgba(212, 175, 55, 0.75);
+}
+
 /* Sobre — features */
 .features {
   display: grid;
