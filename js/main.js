@@ -33,7 +33,29 @@
     });
   }
 
-  /* ----- Player de vídeo ----- */
+  /* ----- Header: estado ao rolar + seção ativa no menu ----- */
+  var header = document.querySelector(".site-header");
+  var spySections = ["destaque", "videos", "sobre", "contato"]
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  var spyLinks = document.querySelectorAll('.main-nav a[href^="#"], .mobile-nav a[href^="#"]');
+
+  function updateHeaderAndSpy() {
+    if (header) header.classList.toggle("is-scrolled", window.scrollY > 10);
+
+    var pos = window.scrollY + (header ? header.offsetHeight : 72) + 90;
+    var current = spySections[0];
+    spySections.forEach(function (sec) {
+      if (sec.getBoundingClientRect().top + window.scrollY <= pos) current = sec;
+    });
+    spyLinks.forEach(function (link) {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + current.id);
+    });
+  }
+  window.addEventListener("scroll", updateHeaderAndSpy, { passive: true });
+  updateHeaderAndSpy();
+
+  /* ----- Player de vídeo (embed do YouTube) ----- */
   var video = document.getElementById("mainVideo");
   var playButtons = document.querySelectorAll('[data-action="play"]');
 
@@ -41,14 +63,10 @@
     playButtons.forEach(function (btn) {
       btn.addEventListener("click", function () {
         video.scrollIntoView({ behavior: "smooth", block: "center" });
-        try {
-          var p = video.play();
-          if (p && typeof p.then === "function") {
-            p.catch(function () {
-              /* Autoplay pode ser bloqueado; o usuário toca em play manualmente */
-            });
-          }
-        } catch (e) { /* ignora */ }
+        // Ativa o autoplay do embed — permitido por vir de um gesto do usuário
+        if (video.src.indexOf("autoplay=") === -1) {
+          video.src = video.src + (video.src.indexOf("?") === -1 ? "?" : "&") + "autoplay=1";
+        }
       });
     });
   }
@@ -106,18 +124,29 @@
     "“Eu sou o caminho, a verdade e a vida.” — João 14:6",
   ];
   var verseEl = document.getElementById("dailyVerse");
+  var verseRefEl = document.getElementById("dailyVerseRef");
   var verseBtn = document.querySelector('[data-action="new-verse"]');
+
+  function setVerse(text) {
+    var parts = text.split(" — ");
+    verseEl.textContent = parts[0] || text;
+    if (verseRefEl) verseRefEl.textContent = parts[1] ? "— " + parts[1] : "";
+  }
+
   if (verseEl && verseBtn) {
+    setVerse(verses[0]);
     verseBtn.addEventListener("click", function () {
       var current = verseEl.textContent.trim();
       var next;
       do {
         next = verses[Math.floor(Math.random() * verses.length)];
-      } while (next === current && verses.length > 1);
+      } while (next.split(" — ")[0].trim() === current && verses.length > 1);
       verseEl.style.opacity = "0";
+      if (verseRefEl) verseRefEl.style.opacity = "0";
       setTimeout(function () {
-        verseEl.textContent = next;
+        setVerse(next);
         verseEl.style.opacity = "1";
+        if (verseRefEl) verseRefEl.style.opacity = "1";
       }, 200);
     });
   }

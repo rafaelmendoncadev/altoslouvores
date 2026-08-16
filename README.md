@@ -1,6 +1,6 @@
 # Altos Louvores 🎵
 
-Site estático para exibir vídeos com temas gospel. Em destaque: **"Não Desista"** com a **Cantora Ludmila Ferber**.
+Site estático para exibir vídeos com temas gospel. Em destaque: **"Não Desista"** com a **Cantora Ludmila Ferber**, reproduzido direto do YouTube (embed).
 
 Totalmente responsivo (celular, tablet e desktop).
 
@@ -8,21 +8,20 @@ Totalmente responsivo (celular, tablet e desktop).
 
 ```
 AltosLouvores/
-├── index.html              # Página principal
+├── index.html              # Página principal (vídeo em destaque via embed do YouTube)
 ├── css/
 │   └── styles.css          # Estilos (mobile-first, responsivo)
 ├── js/
-│   ├── main.js             # Menu, player, compartilhar, versículos
-│   └── ...
+│   └── main.js             # Menu, player (embed), compartilhar, versículos
 └── assets/
     ├── favicon.svg         # Ícone do site (nota musical)
-    └── videos/
-        └── nao-desista.mp4 # Vídeo em destaque
+    └── images/
+        └── capa-nao-desista.jpg  # Capa do destaque (og:image)
 ```
 
 ## Como rodar localmente
 
-Como o site carrega um vídeo local, é recomendável servir por HTTP (evita restrições de `file://` em alguns navegadores):
+O vídeo em destaque vem do YouTube (embed), então o site funciona até abrindo o `index.html` diretamente (duplo clique). Para um ambiente mais próximo da produção, sirva por HTTP:
 
 ```bash
 # Opção 1: Python
@@ -33,17 +32,15 @@ python -m http.server 8000
 npx serve .
 ```
 
-Também funciona abrindo o `index.html` diretamente no navegador (duplo clique).
-
 ## Como adicionar mais vídeos
 
-1. Copie o arquivo `.mp4` para `assets/videos/`.
-2. Duplique o bloco do `<section class="hero">` ou crie uma nova seção com um novo `<video>` apontando para o novo arquivo.
-3. Atualize título e artista conforme necessário.
+1. No YouTube, use **Compartilhar → Incorporar** para copiar o código do `<iframe>`.
+2. Cole o `<iframe>` dentro de `.video-wrapper` na seção do vídeo (mantenha `allowfullscreen` e um `id` único).
+3. Atualize o `title` do iframe, o `src` (ID do vídeo) e os textos de título/artista conforme necessário.
 
 ## Stack
 
-- HTML5 semântico + `<video>` nativo (controles, responsivo via `aspect-ratio`).
+- HTML5 semântico + embed do YouTube (`<iframe>` responsivo via `aspect-ratio`).
 - CSS puro (custom properties, mobile-first, `prefers-reduced-motion`).
 - JavaScript vanilla (sem dependências).
 
